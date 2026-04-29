@@ -34,35 +34,35 @@ interface SidebarProps {
 }
 
 const mainNav = [
-  { icon: LayoutDashboard, label: "Bảng điều khiển", href: "/admin" },
-  { icon: Clock7, label: "Gần đây", href: "/recent" },
-  { icon: Star, label: "Đã đánh dấu", href: "/starred" },
+  { icon: LayoutDashboard, label: "Dashboards", href: "/admin" },
+  { icon: Clock7, label: "Recent", href: "/recent" },
+  { icon: Star, label: "Starred", href: "/starred" },
   {
     icon: BookOpen,
-    label: "Không gian",
+    label: "Spaces",
     href: "/spaces",
     badge: null,
   },
-  { icon: ListFilter, label: "Bộ lọc", href: "/filter" },
-  { icon: BarChart3, label: "Báo cáo", href: "/reports", badge: "sắp có" },
+  { icon: ListFilter, label: "Filter", href: "/filter" },
+  { icon: BarChart3, label: "Reports", href: "/reports", badge: "sắp có" },
 ];
 
 const adminNav = [
-  { icon: UserCog, label: "Quản lý Người dùng", href: "/admin/users" },
-  { icon: Building2, label: "Cài đặt Workspace", href: "/admin/workspace" },
-  { icon: Zap, label: "Quy trình", href: "/admin/workflows" },
-  { icon: Shield, label: "Phân quyền", href: "/admin/permissions" },
+  { icon: UserCog, label: "User management", href: "/admin/users" },
+  { icon: Building2, label: "Setting space", href: "/admin/workspace" },
+  { icon: Zap, label: "Workflows", href: "/admin/workflows" },
+  { icon: Shield, label: "Permissions", href: "/admin/permissions" },
 ];
 
 const optionFilter = [
-  { title: "Công việc của tôi", slug: "my-tasks" },
-  { title: "Do tôi tạo", slug: "created-by-me" },
-  { title: "Chưa hoàn thành của tôi", slug: "my-incomplete" },
-  { title: "Chưa hoàn thành", slug: "incomplete" },
-  { title: "Được tạo gần đây", slug: "recently-created" },
-  { title: "Đã xem gần đây", slug: "recently-viewed" },
-  { title: "Đã cập nhật gần đây", slug: "recently-updated" },
-  { title: "Đã xong gần đây", slug: "recently-completed" },
+  { title: "My tasks", slug: "my-tasks" },
+  { title: "Created by me", slug: "created-by-me" },
+  { title: "My incomplete", slug: "my-incomplete" },
+  { title: "Incomplete", slug: "incomplete" },
+  { title: "Recently created", slug: "recently-created" },
+  { title: "Recently viewed", slug: "recently-viewed" },
+  { title: "Recently updated", slug: "recently-updated" },
+  { title: "Recently completed", slug: "recently-completed" },
 ];
 
 export default function Sidebar({
@@ -177,7 +177,7 @@ export default function Sidebar({
                 className="w-full flex items-center justify-center gap-2 bg-indigo-600 text-white py-2 px-3 rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
               >
                 <Plus className="w-4 h-4" />
-                Tạo không gian mới
+                Create space
               </Link>
             </div>
           )}
@@ -211,7 +211,7 @@ export default function Sidebar({
                   {!collapsed && (
                     <>
                       <span className="text-sm font-medium flex-1 text-left">
-                        Không gian
+                        Spaces
                       </span>
                       {spaceOpen ? (
                         <ChevronDown className="w-4 h-4" />
@@ -259,7 +259,7 @@ export default function Sidebar({
                   {!collapsed && (
                     <>
                       <span className="text-sm font-medium flex-1 text-left">
-                        Bộ lọc
+                        Filters
                       </span>
                       {filterOpen ? (
                         <ChevronDown className="w-4 h-4" />
@@ -341,23 +341,13 @@ export default function Sidebar({
 
         {/* Bottom: Workspace + Settings */}
         <div className="flex-shrink-0 border-t border-slate-100 p-3 space-y-1">
-          {!collapsed && currentWorkspace && (
-            <div className="px-3 py-2 bg-slate-50 rounded-lg mb-2">
-              <p className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">
-                Không gian làm việc
-              </p>
-              <p className="text-sm font-medium text-slate-800 truncate">
-                {currentWorkspace.name}
-              </p>
-            </div>
-          )}
           <Link
             href="/settings"
             onClick={onMobileClose}
             className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${pathname === "/settings" ? "bg-indigo-50 text-indigo-700" : "text-slate-500 hover:bg-slate-50 hover:text-slate-800"}`}
           >
             <Settings className="w-[18px] h-[18px] flex-shrink-0" />
-            {!collapsed && <span className="text-sm font-medium">Cài đặt</span>}
+            {!collapsed && <span className="text-sm font-medium">Settings</span>}
           </Link>
         </div>
 
